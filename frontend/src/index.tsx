@@ -1,3 +1,6 @@
+import './index.css';
+import 'fontsource-manrope';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
