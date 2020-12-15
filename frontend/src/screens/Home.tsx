@@ -1,4 +1,4 @@
-import { Divider, makeStyles } from '@material-ui/core';
+import { Box, Container, Divider, makeStyles } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
 
@@ -11,11 +11,11 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <img src={UplinkLogo} height={48} />
-      <div className={styles.card}>
+      <img className={styles.logo} src={UplinkLogo} height={48} />
+      <Container fixed className={styles.card}>
         <img className={styles.image} src={Illustration} />
         <div className={styles.textContainer}>
-          <Typography variant="h2" style={{ fontSize: 24 }} gutterBottom>
+          <Typography className={styles.title} variant="h2" gutterBottom>
             Simple, private file sharing
           </Typography>
           <Typography variant="body2">
@@ -26,56 +26,75 @@ export default function Home() {
         </div>
         <Divider />
 
-        <div className={styles.bottomCardContainer}>
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="space-between"
+          className={styles.bottomCardContainer}
+        >
           <div className={styles.addItemsContainer}>
             <img src={AddIcon} />
           </div>
-
           <div className={styles.bottomTextContainer}>
-            <Typography variant="h2" style={{ fontSize: 24 }} gutterBottom>
+            <Typography className={styles.title} variant="h2" gutterBottom>
               Add Files
             </Typography>
-            <Typography variant="body2" style={{ padding: 0, margin: 0 }}>
+            <Typography variant="body2">
               Drag and drop your files here or select files from your computer
               to upload.
             </Typography>
           </div>
-        </div>
-      </div>
+        </Box>
+      </Container>
     </div>
   );
 }
 
 const useStyles = makeStyles(({ palette, breakpoints }) => ({
   container: {
-    height: `100vh`,
-    backgroundColor: palette.secondary.light,
-    [breakpoints.up('sm')]: {
-      padding: 60,
+    display: 'flex',
+    flex: 1,
+    flexDirection: 'column',
+    [breakpoints.down('sm')]: {
+      backgroundColor: palette.primary.light,
+    },
+    [breakpoints.between('sm', 'xl')]: {
+      padding: '30px',
+      backgroundColor: palette.secondary.light,
+    },
+  },
+  logo: {
+    alignSelf: 'flex-start',
+    [breakpoints.down('xs')]: {
+      paddingLeft: 24,
     },
   },
   card: {
     backgroundColor: palette.primary.light,
     margin: 'auto',
     borderRadius: 36,
-    [breakpoints.up('lg')]: {
+    [breakpoints.between('sm', 'xl')]: {
       width: 600,
-      height: 704,
+    },
+    [breakpoints.down('sm')]: {
+      width: '100%',
     },
   },
   image: {
     margin: 'auto',
     display: 'block',
     paddingTop: 36,
+    [breakpoints.down('xs')]: {
+      width: 300,
+    },
   },
   textContainer: {
     padding: 36,
   },
+  title: {
+    fontSize: 24,
+  },
   bottomCardContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
     margin: 36,
   },
   addItemsContainer: {
