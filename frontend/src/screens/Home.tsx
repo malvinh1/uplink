@@ -32,9 +32,9 @@ export default function Home() {
           justifyContent="space-between"
           className={styles.bottomCardContainer}
         >
-          <div className={styles.addItemsContainer}>
+          <button className={styles.addItemsContainer}>
             <img src={AddIcon} />
-          </div>
+          </button>
           <div className={styles.bottomTextContainer}>
             <Typography className={styles.title} variant="h2" gutterBottom>
               Add Files
@@ -105,6 +105,8 @@ const useStyles = makeStyles(({ palette, breakpoints }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    outline: 'none',
+    border: 'none',
   },
   bottomTextContainer: {
     flex: 1,
