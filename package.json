@@ -1,7 +1,7 @@
 {
   "name": "uplink",
   "scripts": {
-    "dev": "concurrently --kill-others \"yarn --cwd frontend start\""
+    "dev": "concurrently --kill-others \"yarn  --cwd api dev\" \"yarn --cwd frontend start\""
   },
   "dependencies": {
     "@types/react": "^17.0.0"
